@@ -7,8 +7,8 @@ function Footer() {
                 FoodiPie.com
             </span>
             <span className="text-white font-bold tracking-tight flex gap-4">
-                <span>Privacy Policy</span>
-                <span>Terms of Service</span>
+                <span className="cursor-pointer">Privacy Policy</span>
+                <span className="cursor-pointer">Terms of Service</span>
             </span>
         </div>
     </div>
