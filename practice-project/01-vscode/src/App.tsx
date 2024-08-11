@@ -1,15 +1,18 @@
 import Header from "./components/Header"
 import './App.css';
 import HeroSection from "./components/HeroSection";
+import { ThemeContextProvider } from "./context/ThemeContext";
 
 function App() {
 
   return (
     <>
-    <div>
-      <Header />
-      <HeroSection />
-    </div>
+    <ThemeContextProvider>
+      <div>
+        <Header />
+        <HeroSection />
+      </div>
+    </ThemeContextProvider>
     </>
   )
 }

@@ -1,10 +1,17 @@
 import { styled } from "styled-components"
 import { Button } from "@mui/material";
-
+import { CustomButton } from "./Header";
+import { ThemeContext } from "../context/ThemeContext";
+import { useContext } from "react";
 
 function HeroSection() {
+
+    const { theme } = useContext(ThemeContext);
+
+    // const imageSrc = theme.color. ? 
+
   return (
-    <div>
+    <div style={{ background: theme.backGround, color: theme.color }}>
         <MainArea>
             <TextArea>
                 <RoundedText>
@@ -15,7 +22,9 @@ function HeroSection() {
                     <div>Editing.</div>
                     <div>Redefined.</div>
                 </H3Text>
-                <Button style={{width: '50%'}} variant="contained">Download for Windows</Button>
+                <CustomButton>
+                Download for Windows
+                </CustomButton>
                 <LastText>
                     <p>
                     <a href="https://vscode.dev/">Web</a>
@@ -28,7 +37,7 @@ function HeroSection() {
                 </LastText>
             </TextArea>
             <Image>
-                <img src="https://code.visualstudio.com/assets/home/home-screenshot-mac-2x-v2-light.png" alt="vs-code-lightimage" />
+                <img  alt="vs-code-image" />
             </Image>
         </MainArea>
 

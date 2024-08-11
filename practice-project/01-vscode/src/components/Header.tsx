@@ -2,12 +2,16 @@ import { SiVisualstudiocode } from "react-icons/si";
 import { styled } from "styled-components"
 import { TbSun } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
-import { Button } from "@mui/material";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
 
 function Header() {
 
+    const {theme, toggle} = useContext(ThemeContext);
+
   return (
-    <HeaderDiv>
+    <HeaderDiv style={{ background: theme.backGround, color: theme.color }}>
         <LogoText>
             <SiVisualstudiocode style={{fontSize: '25'}}/>
             <div>Visual Studio Code</div>
@@ -22,9 +26,11 @@ function Header() {
             <p>Learn</p>
         </Midelements>
         <ThemeSearch>
-            <TbSun />
+            <TbSun onClick={toggle}/>
             <CiSearch/>
-        <Button variant="contained">Download</Button>
+        <CustomButton>
+            Download
+        </CustomButton>
         </ThemeSearch>
     </HeaderDiv>
   )
@@ -77,5 +83,15 @@ align-items: center;
 gap: 15px;
 font-size: 20px;
 cursor: pointer;
+`
 
+export const CustomButton = styled.button`
+border-color: ${({theme}) => theme.color == "light"? "black" : "white"};
+border-radius: 6px;
+padding: 5px 10px;
+font-weight: 600;
+background: #1a83eb;
+width: 60%;
+height: 30px;
+cursor: pointer;
 `
