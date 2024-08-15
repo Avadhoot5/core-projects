@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 
 import { BASE_URL } from '../App';
 import WorkoutDetails from '../components/WorkoutDetails';
+import Workoutform from '../components/Workoutform';
 
 
 function Home() {
@@ -37,7 +38,7 @@ function Home() {
           />)
       })}
       </div>
-
+        <Workoutform/>
 
     </div>
   )
