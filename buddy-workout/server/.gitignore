@@ -1,0 +1,62 @@
+# Node modules directory
+node_modules/
+
+# Logs
+*.log
+logs/
+pids/
+*.pid
+*.pid.lock
+
+# Runtime data
+*.pid
+*.pid.lock
+pids/
+*.seed
+*.log
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# IDE or editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Coverage directory used by tools like Jest
+coverage/
+
+# Build output directories
+dist/
+build/
+
+# NPM/Yarn cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.swp
+
+# Optional: Ignore database files
+*.sqlite
+*.sqlite3
+
+# Optional: Ignore server PID files
+*.pid
+
+# Optional: Ignore the following if using Docker
+docker-compose.override.yml
+Dockerfile*
