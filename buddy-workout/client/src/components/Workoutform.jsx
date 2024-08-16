@@ -22,29 +22,27 @@ function Workoutform() {
             })
             const data = await response.json();
             if (!response.ok) {
-                setError(response.error)
-                console.log(error);
+                setError(data.error)
             }
             if (response.ok) {
-                setError(null);
                 setTitle('');
                 setLoad('');
                 setReps('');
+                setError(null);
                 console.log("Workout added sucessfully!");
             }
 
         } catch (error) {
-            console.log(error.message);
+            setError(error.message);
         }
-
     }
 
 
   return (
     <div>
-        <form className="create" onClick={handleSubmit}>
+        <form className="create" onSubmit={handleSubmit}>
 
-            <label>Title: </label>
+            <label>Exercise Title: </label>
             <input type="text"
             onChange={(e) => {
                 setTitle(e.target.value);
