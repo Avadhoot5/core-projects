@@ -26,7 +26,6 @@ function Home() {
     init();
   },[])
   
-
   return (
     <div className='home'>
       <div className="workouts">
@@ -35,6 +34,7 @@ function Home() {
           title = {value.title}
           reps = {value.reps}
           load = {value.load}
+          date = {value.updatedAt}
           />)
       })}
       </div>
