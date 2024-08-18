@@ -9,7 +9,8 @@ function WorkoutDetails({ title, reps, load, date}) {
             <h4>{title}</h4>
             <p><strong>Load (kg): </strong>{load}</p>
             <p><strong>Reps: </strong>{reps}</p>
-            <p>{date.toString().trim('')}</p>
+            <p>{date}</p>
+            {/* <p>{date.toString().trim('')}</p> */}
         </div>
     </div>
   )
