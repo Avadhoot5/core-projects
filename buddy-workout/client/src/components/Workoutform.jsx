@@ -24,6 +24,7 @@ function Workoutform() {
                 body: JSON.stringify(sendData)
             })
             const data = await response.json();
+            console.log(data);
             if (!response.ok) {
                 setError(data.error)
             }
@@ -33,7 +34,7 @@ function Workoutform() {
                 setReps('');
                 setError(null);
                 console.log("Workout added sucessfully!");
-                dispatch({type: 'CREATE_WORKOUT', payload: data})
+                dispatch({type: 'CREATE_WORKOUT', payload: data.mssg})
             }
 
         } catch (error) {
