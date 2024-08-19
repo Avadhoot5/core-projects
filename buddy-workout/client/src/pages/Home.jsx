@@ -14,7 +14,6 @@ function Home() {
       try {
         const response = await fetch(`${BASE_URL}api/workouts`, {
           method: "GET",
-          "Content-type": "application/json"
         })
         const data = await response.json();
         if (response.ok) {
@@ -33,6 +32,7 @@ function Home() {
       <div className="workouts">
         {workouts && workouts.map((value) => {
           return (<WorkoutDetails key = {value._id} 
+          id = {value._id}
           title = {value.title}
           reps = {value.reps}
           load = {value.load}
