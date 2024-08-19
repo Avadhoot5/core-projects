@@ -1,6 +1,8 @@
 import React from 'react'
 import { BASE_URL } from '../App'
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
+import { MdOutlineDeleteSweep } from "react-icons/md";
+import {formatDistanceToNow} from "date-fns";
 
 function WorkoutDetails({ id, title, reps, load, date}) {
 
@@ -30,9 +32,11 @@ function WorkoutDetails({ id, title, reps, load, date}) {
             <h4>{title}</h4>
             <p><strong>Load (kg): </strong>{load}</p>
             <p><strong>Reps: </strong>{reps}</p>
-            <p>{date}</p>
-            <span onClick={handleClick}>Delete</span>
-            {/* <p>{date.toString().trim('')}</p> */}
+            <p>{formatDistanceToNow(new Date(date), {addSuffix: true})}</p>
+            <span>
+              <MdOutlineDeleteSweep onClick={handleClick}
+              style={{fontSize: '25px', justifySelf: 'center', width: '30px'}}/>
+            </span>
         </div>
     </div>
   )
