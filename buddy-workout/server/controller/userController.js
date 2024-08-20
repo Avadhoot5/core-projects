@@ -5,8 +5,14 @@ const loginUser = (req, res) => {
     res.json({mssg: 'User logged in' });
 }
 
-const signupUser = (req, res) => {
-    res.json({mssg: 'User signed up'});
+const signupUser = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.signup(email, password);
+        res.status(200).json({email, user});    
+    } catch (error) {
+        res.json({error: error.message});
+    }
 }
 
 
