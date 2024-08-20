@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -13,11 +14,23 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+// If below const syntax is used, we will not be able to add the signup method to it.
 // const User = mongoose.model('User', userSchema);
 
-userSchema.statics
-
+// creating own method for schema.
 userSchema.statics.signup = async function(email, password) {
+
+    // validation
+    if (!email || !password) {
+        throw Error('All fields are required');
+    }
+    if (!validator.isEmail(email)) {
+        throw Error('Please enter a valid Email');
+    }
+    if (!validator.isStrongPassword(password)) {
+        throw Error('Password too weak');
+    }
+
     const exists = await this.findOne({email});
     if (exists) {
         throw Error('Useremail already present');
