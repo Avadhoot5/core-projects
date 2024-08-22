@@ -29,7 +29,7 @@ export const useLogin = () => {
             setIsLoading(false);
 
             // save the token in browser
-            localStorage.setItem('user', data);
+            localStorage.setItem('user', JSON.stringify(data));
             
             // set the auth state
             dispatch({type: 'LOGIN', payload: data});
