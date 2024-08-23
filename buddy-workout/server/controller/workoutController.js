@@ -5,10 +5,11 @@ const mongoose = require('mongoose');
 // get all workouts
 const getAllWorkout = async (req, res) => {
     try {
-        const workouts = await Workout.find({}).sort({createdAt: -1})
+        const user_id = req.user._id;
+        const workouts = await Workout.find({ user_id }).sort({createdAt: -1})
         return res.status(200).json((workouts));
-    } catch (e) {
-        return res.status(400).json({mssg: e.message});
+    } catch (error) {
+        return res.status(400).json({mssg: error.message});
     }
 }
 
@@ -21,7 +22,7 @@ const getSingleWorkout = async (req, res) => {
     try {
         const workout = await Workout.findById(workoutID);
         return res.status(200).json(workout);
-    } catch (e) {
+    } catch (error) {
         return res.status(400).json({mssg: 'ID not found'});
     }
 }
@@ -42,7 +43,8 @@ const createWorkout = async (req, res) => {
     }
 
     try {
-        const work = await Workout.create({title, reps, load})
+        const user_id = req.user._id;
+        const work = await Workout.create({title, reps, load, user_id})
         return res.status(200).json({mssg: work})
     } catch (error) {
         return res.status(400).json({error: 'Please fill all the fields', emptyFields})
