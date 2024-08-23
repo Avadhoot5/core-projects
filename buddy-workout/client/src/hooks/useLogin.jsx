@@ -6,7 +6,7 @@ export const useLogin = () => {
 
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
-    const { dispatch, user } = useAuthContext();
+    const { dispatch } = useAuthContext();
 
     const login = async (email, password) => {
         setIsLoading(true);
@@ -16,7 +16,6 @@ export const useLogin = () => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                // Authorization: "Bearer " + JSON.stringify(localStorage.getItem('user'))
             },
             body: JSON.stringify({email, password})
         })

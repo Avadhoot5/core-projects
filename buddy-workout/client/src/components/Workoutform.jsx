@@ -1,10 +1,12 @@
 import {useState} from 'react'
 import { BASE_URL } from '../App';
 import { useWorkoutContext } from '../hooks/useWorkoutContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 function Workoutform() {
 
     const { dispatch } = useWorkoutContext();
+    const { user } = useAuthContext();
 
     const [title, setTitle] = useState('');
     const [load, setLoad] = useState('');
@@ -20,7 +22,8 @@ function Workoutform() {
             const response = await fetch(`${BASE_URL}api/workouts`, {
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
                 },
                 body: JSON.stringify(sendData)
             })

@@ -3,17 +3,25 @@ import { BASE_URL } from '../App'
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import {formatDistanceToNow} from "date-fns";
+import { useAuthContext } from '../hooks/useAuthContext';
 
 function WorkoutDetails({ id, title, reps, load, date}) {
 
   const {dispatch} = useWorkoutContext();
+  const { user } = useAuthContext();
 
   const handleClick = async () => {
+
+    if (!user)  {
+      return
+    }
+
     try {
       const response = await fetch(`${BASE_URL}api/workouts/${id}`, {
         method: "DELETE",
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.token}`
           }
         }
       )
