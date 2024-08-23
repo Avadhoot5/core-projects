@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import { BASE_URL } from '../App';
 
-
 export const useLogin = () => {
 
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
-    const { dispatch } = useAuthContext();
+    const { dispatch, user } = useAuthContext();
 
     const login = async (email, password) => {
         setIsLoading(true);
@@ -15,7 +14,10 @@ export const useLogin = () => {
 
         const response = await fetch(`${BASE_URL}api/user/login`, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {
+                "Content-Type": "application/json",
+                // Authorization: "Bearer " + JSON.stringify(localStorage.getItem('user'))
+            },
             body: JSON.stringify({email, password})
         })
         const data = await response.json();
