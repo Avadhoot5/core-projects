@@ -1,27 +1,27 @@
-import React from 'react'
+import './TodoForm.css'
 
 const TodoForm = () => {
   return (
-    <div>
-        <header className='app_header'>
+    <div className='app_header'>
             <form className='app_form'>
-                <input type='text' className='todo_input' placeholder='Enter you task'/>
+                <input type='text' className='todo_input' placeholder='Enter your task'/>
                 <div className='todo_form_bottom'>
-                    <button className="tag">HTML</button>
-                    <button className="tag">CSS</button>
-                    <button className="tag">Javascript</button>
-                    <button className="tag">ReactJS</button>
-                    <select className='todo_status'>
-                        <option value="todo">To Do</option>
-                        <option value="inprogress">In Progress</option>
-                        <option value="done">Done</option>
-                    </select>
-                    <button className="todo_submit">+ Add Task</button>
+                    <div>
+                        <button className="tag">HTML</button>
+                        <button className="tag">CSS</button>
+                        <button className="tag">Javascript</button>
+                        <button className="tag">ReactJS</button>
+                    </div>
+                    <div>
+                        <select className='todo_status'>
+                            <option value="todo">To Do</option>
+                            <option value="inprogress">In Progress</option>
+                            <option value="done">Done</option>
+                        </select>
+                        <button className="todo_submit">+ Add Task</button>
+                    </div>
                 </div>
-
             </form>
-        </header>
-
     </div>
   )
 }
