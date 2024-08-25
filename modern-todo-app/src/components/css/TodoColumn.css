@@ -10,3 +10,6 @@
     text-wrap: nowrap;
 }
 
+.task_col {
+    width: 100%;
+}

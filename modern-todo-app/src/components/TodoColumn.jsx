@@ -1,5 +1,6 @@
 
 import './css/TodoColumn.css';
+import TodoCard from '../components/TodoCard';
 
 
 const TodoColumn = ({title, imageSource}) => {
@@ -11,6 +12,9 @@ const TodoColumn = ({title, imageSource}) => {
             <img className='task_col_image' src={imageSource} alt="" />
                 {title}
             </h2>
+            <div>
+                <TodoCard/>
+            </div>
         </section>
         
         
