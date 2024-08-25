@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../App.css'
 import TodoForm from '../components/TodoForm';
 import TodoColumn from '../components/TodoColumn';
@@ -7,13 +7,24 @@ import section2_Image from '../assets/glowing-star.png';
 import section3_Image from '../assets/check-mark-button.png';
 
 const Home = () => {
+
+  const [tasks, setTasks] = useState([])
+
+  const handleDelete = (taskIndex) => {
+    const newTasks = tasks.filter((task, index) => index !== taskIndex);
+    setTasks(newTasks);
+  }
+
   return (
     <div className='app'>
-        <TodoForm/>
+        <TodoForm setTasks={setTasks}/>
         <main className="app_main">
-            <TodoColumn imageSource = {section1_Image} title='To Do'/>
-            <TodoColumn imageSource = {section2_Image} title='In Progress'/>
-            <TodoColumn imageSource = {section3_Image} title='Done'/>
+            <TodoColumn handleDelete={handleDelete} tasks={tasks} status = 'todo' 
+            imageSource = {section1_Image} title='To Do'/>
+            <TodoColumn handleDelete={handleDelete} tasks={tasks} status = 'inprogress' 
+            imageSource = {section2_Image} title='In Progress'/>
+            <TodoColumn handleDelete={handleDelete} tasks={tasks} status = 'done' 
+            imageSource = {section3_Image} title='Done'/>
         </main>
     </div>
   )

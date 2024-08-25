@@ -2,12 +2,31 @@ import { useState } from 'react'
 import './css/TodoForm.css'
 import Tag from './Tag'
 
-const TodoForm = () => {
+const TodoForm = ({setTasks}) => {
 
     const [taskData, setTaskData] = useState({
         task: '',
-        status: 'todo'
+        status: 'todo',
+        tags: []
     })
+
+    const isTagClicked = (tag) => {
+        return taskData.tags.includes(tag);
+    }
+
+    const selectTag = (tag) => {
+        if (taskData.tags.includes(tag)) {
+            const filterTags = taskData.tags.filter(item => item !== tag);
+            setTaskData((prev) => {
+                return {...prev, tags: filterTags}
+            })
+        } else {
+
+            setTaskData((prev) => {
+                return {...prev, tags: [...prev.tags, tag]}
+            })            
+        }
+    }
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -17,9 +36,16 @@ const TodoForm = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(taskData);
+        setTasks(prev => {
+            return [...prev, taskData]
+        })
+        setTaskData({
+            task: '',
+            status: 'todo',
+            tags: []
+        });
     }
 
   return (
@@ -27,18 +53,20 @@ const TodoForm = () => {
             <form className='app_form' onSubmit={handleSubmit}>
                 <input type='text' className='todo_input' placeholder='Enter your task'
                 name='task'
+                value={taskData.task}
                 onChange={handleChange}
                 />
                 <div className='todo_form_bottom'>
                     <div>
-                        <Tag title='HTML'/>
-                        <Tag title='CSS'/>
-                        <Tag title='Javascript'/>
-                        <Tag title='ReactJs'/>
+                        <Tag selectTag={selectTag} selected={isTagClicked('HTML')} tag='HTML'/>
+                        <Tag selectTag={selectTag} selected={isTagClicked('CSS')} tag='CSS'/>
+                        <Tag selectTag={selectTag} selected={isTagClicked('Javascript')} tag='Javascript'/>
+                        <Tag selectTag={selectTag} selected={isTagClicked('ReactJs')} tag='ReactJs'/>
                     </div>
                     <div>
                         <select className='todo_status' name='status'
                         onChange={handleChange}
+                        value={taskData.status}
                         >
                             <option value="todo">To Do</option>
                             <option value="inprogress">In Progress</option>
