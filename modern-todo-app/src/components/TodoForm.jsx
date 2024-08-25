@@ -1,4 +1,5 @@
-import './TodoForm.css'
+import './css/TodoForm.css'
+import Tag from './Tag'
 
 const TodoForm = () => {
   return (
@@ -7,10 +8,10 @@ const TodoForm = () => {
                 <input type='text' className='todo_input' placeholder='Enter your task'/>
                 <div className='todo_form_bottom'>
                     <div>
-                        <button className="tag">HTML</button>
-                        <button className="tag">CSS</button>
-                        <button className="tag">Javascript</button>
-                        <button className="tag">ReactJS</button>
+                        <Tag title='HTML'/>
+                        <Tag title='CSS'/>
+                        <Tag title='Javascript'/>
+                        <Tag title='ReactJs'/>
                     </div>
                     <div>
                         <select className='todo_status'>

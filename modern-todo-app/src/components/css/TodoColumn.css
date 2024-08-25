@@ -1,0 +1,12 @@
+.task_col_image {
+    width: 30px;
+    margin-right: 5px;
+}
+
+.task_col_heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-wrap: nowrap;
+}
+
