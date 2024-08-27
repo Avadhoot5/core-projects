@@ -1,0 +1,22 @@
+{
+    "blogs" : [
+        {
+            "title": "new blog",
+            "body": "lorem ipsum",
+            "author": "unknown",
+            "id": 1
+        },
+        {
+            "title": "blog is new",
+            "body": "lorem ipsum",
+            "author": "authr2",
+            "id": 2
+        },
+        {
+            "title": "hello from blog",
+            "body": "lorem ipsum",
+            "author": "unknown",
+            "id": 3
+        }
+    ]
+}
