@@ -1,24 +1,19 @@
-import React from 'react'
 import { useState } from 'react';
+import BlogList from './BlogList';
 
 const Home = () => {
 
     const [blogs, setBlogs] = useState([
-        {title: "new blog", body: "lorem ipsum", author: "test", id: 1},
+        {title: "new blog", body: "lorem ipsum", author: "unknown", id: 1},
         {title: "blog is new", body: "lorem ipsum", author: "authr2", id: 2},
-        {title: "hell from blog", body: "lorem ipsum", author: "new author", id: 3},
+        {title: "hello from blog", body: "lorem ipsum", author: "unknown", id: 3},
     ])
 
   return (
     <div className='home'>
-        <h2>Homepage</h2>
         <div>
-            {blogs.map((blog) => (
-                <div className='blog-preview' key={blog.id}>
-                    <h2>{blog.title}</h2>
-                    <p>Written by {blog.author}</p>
-                </div>
-            ))}
+            <BlogList blogs={blogs} title="All Blogs"/>
+            <BlogList blogs={blogs.filter(blog => blog.author === 'unknown')} title="Unknown Blogs"/>
         </div>
     </div>
   )
