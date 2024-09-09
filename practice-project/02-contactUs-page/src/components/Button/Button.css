@@ -1,9 +1,12 @@
 .bttn {
     all: unset;
-    height: 30px;
-    width: 75px;
+    min-height: 30px;
+    height: auto;
+    min-width: auto;
+    width: 90px;
     border: 1px solid black;
     text-align: center;
+    text-wrap: nowrap;
     font-weight: 500;
     cursor: pointer;
 }
