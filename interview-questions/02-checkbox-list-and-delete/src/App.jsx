@@ -13,7 +13,10 @@ function App() {
   const handleCross = (index) => {
     let filterArr = todo.filter((value, i) => i !== index);
     setTodo(filterArr);
-    setCheckBox(prev => prev.splice(index, 1));
+    setCheckBox(prev => {
+      const newCheckBox = prev.filter((_,i) => i !== index);
+      return newCheckBox;
+    });
   }
   console.log(checkBox);
 
@@ -28,6 +31,7 @@ function App() {
             style={{maxWidth:'15%', display:'flex', gap: '10px', justifyContent: 'space-between'}}>
               <span>
                 <input type="checkbox" name={index}
+                checked={checkBox[index] || false}
                 onChange={() => {
                   setCheckBox((prev) => {
                     const newCheckBox = [...prev];
