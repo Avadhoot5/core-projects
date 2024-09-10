@@ -7,8 +7,7 @@
 .formDescription {
     max-width: 1160px;
     margin-top: 50px;
-    padding: 30px;
-
+    margin-bottom: 30px;
 }
 
 .formDescription h2 {
@@ -24,10 +23,12 @@
 
 .formDetails {
     height: 600px;
+    width: 80%;
     display: flex;
     gap: 81px;
-
-    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contactButtons {
@@ -43,10 +44,34 @@
 }
 
 .inputDetails {
+    width: 450px;
     display: flex;
     flex-direction: column;
     gap: 23px;
+    align-items: center;
+    position: relative;
+    margin-top: 25px;
+}
 
+.inputDetails label {
+    position: absolute;
+    margin-left: 30px;
+    margin-top: -12px;
+    background: white;
+    padding: 0 3px;
+    font-weight: 500;
+}
+
+.inputDetails input,textarea {
+    font-size: 20px;
+    width: 400px;
+    padding: 10px 0;
+}
+
+.submitBttn {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 25px;
 }
 
 .contactImage {

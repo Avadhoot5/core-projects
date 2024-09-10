@@ -1,7 +1,7 @@
 import './Button.css';
 
 interface ButtonProps {
-    icon: React.ReactNode,
+    icon?: React.ReactNode,
     text: string,
     color: string,
     background: string,

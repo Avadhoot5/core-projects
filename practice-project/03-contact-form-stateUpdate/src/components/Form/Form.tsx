@@ -47,14 +47,21 @@ const Form = () => {
                         </div>
                         <div>
                         <label>TEXT</label>
-                            <textarea name="postContent" rows={8} cols={40} />
-                        </div> 
+                            <textarea name="postContent" rows={3} />
+                        </div>
+                        <div className='submitBttn'>
+                        <Button
+                            text='SUBMIT'
+                            color= 'white'
+                            background='black'
+                        />
+                        </div>
                     </div>
                 </div>
                 </div>
                 
                 <div className="contactImage">
-                <img src="../public/images/service.svg" alt="contactImage" />
+                <img src="../images/service.svg" alt="contactImage" />
             </div>
             </div>
         </div>
