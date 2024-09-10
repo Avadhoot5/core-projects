@@ -1,0 +1,55 @@
+.formComplete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.formDescription {
+    max-width: 1160px;
+    margin-top: 50px;
+    padding: 30px;
+
+}
+
+.formDescription h2 {
+    font-size: 48px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.formDescription p {
+    font-weight: 500;
+    width: 80%;
+}
+
+.formDetails {
+    height: 600px;
+    display: flex;
+    gap: 81px;
+
+    border: 1px solid black;
+}
+
+.contactButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.chatCallButtons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.inputDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+
+}
+
+.contactImage {
+    height: 600px;
+    width: 45%;
+}

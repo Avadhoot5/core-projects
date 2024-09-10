@@ -1,0 +1,20 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+    gap: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}
