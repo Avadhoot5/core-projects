@@ -1,18 +1,12 @@
 import styled from "styled-components"
-import { useState } from "react";
 
-const NumberSelector = () => {
+const NumberSelector = ({handleNumber, selectedNum, error}) => {
 
   const arrayNum = Array.from({length: 6}, (_,i) => i+1);
-  
-  const [selectedNum, setSelectedNum] = useState();
-
-  const handleNumber = (index) => {
-    setSelectedNum(index);
-  }
 
   return (
     <NumberContainer>
+      {error && <div className="error">{error}</div>}
       <NumberBox>
         {arrayNum.map((value,i) => {
           return (<Box isSelected = {value === selectedNum} 
@@ -35,6 +29,7 @@ const Box = styled.div`
   justify-content: center;
   font-size: 24px;
   font-weight: 700;
+  cursor: pointer;
   background-color: ${({isSelected}) => isSelected ? 'black':'white'};
   color: ${({isSelected}) => isSelected ? 'white':'black'}
 `
@@ -54,6 +49,11 @@ const NumberContainer = styled.div`
   p {
     font-size: 24px;
     font-weight: bold;
-
   }
+  .error {
+    color: red;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
 `
