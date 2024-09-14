@@ -65,13 +65,12 @@ const FilterButtons = styled.div`
     gap: 14px;
     justify-content: center;
     padding-top: 50px;
-    
-    `
+
+`
 
 const Button = styled.button`
     color: white;
     background: #FF4343;
-    height: 30px;
     width: auto;
     padding: 3px 8px;
     border: none;
