@@ -34,7 +34,9 @@ const MainContainer = styled.div`
     max-height: 240px;
     padding: 20px;
     margin: 0 auto;
-    margin-top: 20px;    
+    margin-bottom: 50px;
+    z-index: 10;
+
 `
 
 const LogoSearchContainer = styled.div`
@@ -42,7 +44,7 @@ const LogoSearchContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 80px;
 
     .searchInput {
         width: 280px;
@@ -51,9 +53,9 @@ const LogoSearchContainer = styled.div`
         input {
             background-color: transparent;
             padding: 5px 10px;
-            border: 1px solid red;
             border-radius: 5px;
             color: white;
+            border: 1px solid red;
             font-weight: 500;
         }
     }
@@ -65,15 +67,14 @@ const FilterButtons = styled.div`
     gap: 14px;
     justify-content: center;
     padding-top: 50px;
-
+    margin-bottom: 20px;
 `
 
 const Button = styled.button`
     color: white;
     background: #FF4343;
     width: auto;
-    padding: 3px 8px;
+    padding: 5px 8px;
     border: none;
     border-radius: 5px;
-
 `
